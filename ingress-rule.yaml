@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1beta1  ### if it is v1.13 you can use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: myrule1
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /app1
+        backend:
+          serviceName: test2
+          servicePort: 80
